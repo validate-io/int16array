@@ -1,8 +1,8 @@
-int16array
+Int16Array
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Validates if a value is an Int16Array.
+> Validates if a value is an [Int16Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array).
 
 
 ## Installation
@@ -17,18 +17,61 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 ## Usage
 
 ``` javascript
-var foo = require( 'validate.io-int16array' );
+var isInt16Array = require( 'validate.io-int16array' );
 ```
 
-#### foo( value )
+#### isInt16Array( value )
 
-What does this function do?
+Validates if a value is an [Int16Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array).
+
+``` javascript
+var arr = new Int16Array( 10 );
+
+var bool = isInt16Array( arr );
+// returns true
+```
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'validate.io-int16array' );
+var isInt16Array = require( 'validate.io-int16array' );
+
+console.log( isInt16Array( new Int16Array( 10 ) ) );
+// returns true
+
+console.log( isInt16Array( new Int8Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Uint8Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Uint8ClampedArray( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Uint16Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Int32Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Uint32Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Float32Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Float64Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( new Array( 10 ) ) );
+// returns false
+
+console.log( isInt16Array( {} ) );
+// returns false
+
+console.log( isInt16Array( null ) );
+// returns false
 ```
 
 To run the example code from the top-level application directory,
